@@ -1,0 +1,112 @@
+#include <stdio.h>
+
+int main() {
+
+    // ===============================
+    // DECLARAÇÃO DAS VARIÁVEIS
+    // ===============================
+    char estado1[3], estado2[3];
+    char codigo1[10], codigo2[10];
+    char nome1[50], nome2[50];
+
+    int populacao1, populacao2;
+    float area1, area2;
+    float pib1, pib2;
+    int pontos1, pontos2;
+
+    float densidade1, densidade2;
+    float pib_per_capita1, pib_per_capita2;
+
+    // ===============================
+    // ENTRADA DOS DADOS DA CARTA 1
+    // ===============================
+    printf("=== Carta 1 ===\n");
+
+    printf("Estado: ");
+    scanf(" %2s", estado1);
+
+    printf("Codigo: ");
+    scanf(" %9s", codigo1);
+
+    printf("Nome da cidade: ");
+    scanf(" %[^\n]", nome1);
+
+    printf("Populacao: ");
+    scanf("%d", &populacao1);
+
+    printf("Area: ");
+    scanf("%f", &area1);
+
+    printf("PIB: ");
+    scanf("%f", &pib1);
+
+    printf("Pontos turisticos: ");
+    scanf("%d", &pontos1);
+
+    densidade1 = populacao1 / area1;
+    pib_per_capita1 = pib1 / populacao1;
+
+    // ===============================
+    // ENTRADA DOS DADOS DA CARTA 2
+    // ===============================
+    printf("\n=== Carta 2 ===\n");
+
+    printf("Estado: ");
+    scanf(" %2s", estado2);
+
+    printf("Codigo: ");
+    scanf(" %9s", codigo2);
+
+    printf("Nome da cidade: ");
+    scanf(" %[^\n]", nome2);
+
+    printf("Populacao: ");
+    scanf("%d", &populacao2);
+
+    printf("Area: ");
+    scanf("%f", &area2);
+
+    printf("PIB: ");
+    scanf("%f", &pib2);
+
+    printf("Pontos turisticos: ");
+    scanf("%d", &pontos2);
+
+    densidade2 = populacao2 / area2;
+    pib_per_capita2 = pib2 / populacao2;
+
+    // ==========================================
+    // DEFINIÇÃO DO ATRIBUTO A SER COMPARADO
+    // ==========================================
+    // Aqui você escolhe qual atributo será comparado.
+    // Neste exemplo, vamos comparar POPULAÇÃO.
+
+    int atributo_escolhido = 1;
+
+    // 1 = população
+    // 2 = área
+    // 3 = PIB
+    // 4 = densidade
+    // 5 = PIB per capita
+
+    printf("\n====================================\n");
+    printf("Comparacao de cartas (Atributo: Populacao)\n");
+    printf("====================================\n\n");
+
+    // ===============================
+    // COMPARAÇÃO – POPULAÇÃO
+    // ===============================
+
+    printf("Carta 1 - %s (%s): %d\n", nome1, estado1, populacao1);
+    printf("Carta 2 - %s (%s): %d\n\n", nome2, estado2, populacao2);
+
+    if (populacao1 > populacao2) {
+        printf("Resultado: Carta 1 (%s) venceu!\n", nome1);
+    } else if (populacao2 > populacao1) {
+        printf("Resultado: Carta 2 (%s) venceu!\n", nome2);
+    } else {
+        printf("Resultado: Empate!\n");
+    }
+
+    return 0;
+}
