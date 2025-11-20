@@ -7,7 +7,7 @@ int main() {
     srand(time(0));
 
     printf("*** Jogo de Jokenpo ***\n");
-    printf("Escolha uma opcao\n");
+    printf("Escolha uma opção\n");
     printf("1. Pedra\n");
     printf("2. Papel\n");
     printf("3. Tesoura\n");
@@ -27,7 +27,7 @@ int main() {
         printf("Jogador: Tesoura -");
         break;
     default:
-        printf("Opcao Invalida\n");
+        printf("Opção Invalida\n");
         break;
     }
 
@@ -42,7 +42,7 @@ int main() {
         printf("Computador: Tesoura\n");
         break;
     default:
-        printf("Opcao Invalida\n");
+        printf("Opção Invalida\n");
         break;
     }
 
@@ -53,10 +53,10 @@ int main() {
                (escolhaJogador == 2 && escolhaComputador == 1) ||
                (escolhaJogador == 3 && escolhaComputador == 2)) {
 
-        printf("### Parabens, voce ganhou! ###\n");
+        printf("### Parabéns, voce ganhou! ###\n");
 
     } else {
-        printf("### Voce perdeu! ###\n");
+        printf("### Você perdeu! ###\n");
     }
 
     return 0;
