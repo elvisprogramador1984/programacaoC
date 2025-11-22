@@ -14,10 +14,10 @@ int main() {
     int escolha1, escolha2;
 
     // Variáveis para armazenar o nome dos atributos escolhidos
-    char *nome_atr1 = "N/A", *nome_atr2 = "N/A";
+    char *nome_atr1, *nome_atr2 = "N/A";
     
     // Variáveis para armazenar os valores dos atributos (v1A, v2A, etc.)
-    float v1A = 0.0, v1B = 0.0, v2A = 0.0, v2B = 0.0;
+    float v1A, v1B = 0.0, v2A, v2B = 0.0;
     
     // Variáveis para a soma final
     float soma1, soma2;
@@ -28,7 +28,7 @@ int main() {
     printf("=== Carta 1  ===\n");
     printf("Digite o Estado (A-H): "); scanf(" %2s", estado1);
     printf("Digite o Código (ex. A01, B02): "); scanf(" %9s", codigo1);
-    printf("Digite a Cidade (caso seja nome composto inclua o espaço): "); scanf(" %49[^\n]", nome1);
+    printf("Digite a Cidade: "); scanf(" %49[^\n]", nome1);
     printf("Digite a População (sem o ponto): "); scanf("%d", &populacao1);
     printf("Digite a área em km² (use ponto, ex: 7522.33): "); scanf("%f", &area1);
     printf("Digite o PIB em bilhões (use ponto, ex: 889.30): "); scanf("%f", &pib1);
@@ -41,7 +41,7 @@ int main() {
     printf("\n=== Carta 2  ===\n");
     printf("Digite o Estado (A-H): "); scanf(" %2s", estado2);
     printf("Digite o Código (ex. A01, B02): "); scanf(" %9s", codigo2);
-    printf("Digite a Cidade (caso seja nome composto inclua o espaço): "); scanf(" %49[^\n]", nome2);
+    printf("Digite a Cidade: "); scanf(" %49[^\n]", nome2);
     printf("Digite a População (sem o ponto): "); scanf("%d", &populacao2);
     printf("Digite a área em km² (use ponto, ex: 7522.33): "); scanf("%f", &area2);
     printf("Digite o PIB em bilhões (use ponto, ex: 889.30): "); scanf("%f", &pib2);
@@ -51,14 +51,11 @@ int main() {
     pib_per_capita2 = (populacao2 != 0) ? pib2 / (float)populacao2 : 0.0;
 
     // ----------------- PRIMEIRO ATRIBUTO (ESCOLHA 1) -----------------
-    printf("===============================\n");
-    printf(" * Seja bem-vindo(a) ao jogo! *\n");
-    printf("===============================\n");
-    printf("\n**** ESCOLHA DO PRIMEIRO ATRIBUTO ****\n");
-    printf("1 - Populacão\n");
-    printf("2 - Área\n");
+    printf("\n--- ESCOLHA DO PRIMEIRO ATRIBUTO ---\n");
+    printf("1 - Populacao\n");
+    printf("2 - Area\n");
     printf("3 - PIB\n");
-    printf("4 - Pontos Turísticos\n");
+    printf("4 - Pontos Turisticos\n");
     printf("5 - Densidade\n");
     printf("6 - PIB per capita\n");
     printf("Escolha (1-6): ");
@@ -67,11 +64,11 @@ int main() {
     switch (escolha1) {
         case 1: 
             v1A = populacao1; v2A = populacao2;
-            nome_atr1 = "População";
+            nome_atr1 = "Populacao";
         break;
         case 2: 
             v1A = area1; v2A = area2; 
-            nome_atr1 = "Área";
+            nome_atr1 = "Area";
         break;
         case 3: 
             v1A = pib1; v2A = pib2; 
@@ -79,7 +76,7 @@ int main() {
         break;
         case 4: 
             v1A = pontos1; v2A = pontos2; 
-            nome_atr1 = "Pontos Turísticos";
+            nome_atr1 = "Pontos Turisticos";
         break;
         case 5: 
             v1A = densidade1; v2A = densidade2; 
@@ -90,17 +87,17 @@ int main() {
             nome_atr1 = "PIB per capita";
         break;
         default:
-            printf("\nOpção inválida para o primeiro atributo. Usando População (default).\n");
+            printf("\nOpcao invalida para o primeiro atributo. Usando Populacao (default).\n");
             v1A = populacao1; v2A = populacao2;
-            nome_atr1 = "População (Default)";
+            nome_atr1 = "Populacao (Default)";
             escolha1 = 1;
     }
 
     // ----------------- SEGUNDO ATRIBUTO  -----------------
 
-    printf("\n**** ESCOLHA DO SEGUNDO ATRIBUTO ****\n");
-    printf("O primeiro foi: *%s* escolha outro?\n", nome_atr1);
-    scanf("%d", &escolha2);
+    printf("\n--- ESCOLHA DO SEGUNDO ATRIBUTO ---\n");
+    printf("O primeiro foi: %s Escolha outro?\n", nome_atr1);
+    
     // Variável para checar se a escolha é válida (diferente da primeira)
     int escolha2_valida = 0;
 
@@ -165,33 +162,32 @@ int main() {
     soma1 = v1A + v1B;
     soma2 = v2A + v2B;
 
-    printf("\n=================================================\n");
+    printf("\n======================================================\n");
     printf("### RESULTADO DA RODADA: %s vs %s ###\n", nome1, nome2);
-    printf("===================================================\n");
+    printf("======================================================\n");
     
-    printf("\n==> ATRIBUTO 1: %s\n", nome_atr1);
-    printf("- %s: %.2f\n", nome1, v1A);
-    printf("- %s: %.2f\n", nome2, v2A);
+    // EXIBIÇÃO DE VALORES E ATRS
+    printf("\n--> ATRIBUTO 1: %s\n", nome_atr1);
+    printf("- %s: %.2f\n", nome1, v1A, nome2, v2A);
+    //printf("- %s: %.2f\n", nome2, v2A);
 
-    printf("\n==> ATRIBUTO 2: %s\n", nome_atr2);
-
-    printf("* %s: %.2f\n", nome1, v1B);
-    printf("* %s: %.2f\n", nome2, v2B);
+    printf("\n--> ATRIBUTO 2: %s\n", nome_atr2);
+    printf("- %s: %.2f\n", nome1, v1B, nome2, v2B);
+    //printf("- %s: %.2f\n", nome2, v2B);
     
-    printf("\n*** SOMA DOS ATRIBUTOS ***\n");
-    printf("* %s (%s + %s): %.2f\n", nome1, nome_atr1, nome_atr2, soma1);
-    printf("* %s (%s + %s): %.2f\n", nome2, nome_atr1, nome_atr2, soma2);
+    printf("\n--- SOMA DOS ATRIBUTOS ---\n");
+    printf("- %s (%s + %s): %.2f\n", nome1, nome2, nome_atr1, nome_atr2, soma1, soma2);
+    //printf("- %s (%s + %s): %.2f\n", nome2, nome_atr1, nome_atr2, soma2);
 
-    printf("\n*** ============== ***\n");
-    printf("* VENCEDOR *");
-    printf("\n*** ============== ***\n");
+    printf("\n*** VENCEDOR GERAL ***\n");
+    
     // VENCEDOR FINAL (COM TERNÁRIO)
     printf("%s\n", 
         (soma1 == soma2) ? "Empate!" : 
         ((soma1 > soma2) ? nome1 : nome2)
     );
     
-    printf("\n");
+    printf("======================================================\n");
 
     return 0;
 }
