@@ -47,7 +47,7 @@ int main() {
     int resultado;
 
     // Função auxiliar para imprimir
-    #define MOSTRAR(atributo, valor1, valor2, condicao) \
+        printf(atributo, valor1, valor2, condicao); \
         printf("%s:\n", atributo); \
         printf("  Carta 1: %.2f\n", (double)valor1); \
         printf("  Carta 2: %.2f\n", (double)valor2); \
@@ -59,22 +59,22 @@ int main() {
         else printf("  Resultado: Empate (2)\n\n");
 
     // 1 — POPULAÇÃO
-    MOSTRAR("População",
+    printf("População",
             populacao1, populacao2,
             populacao1 > populacao2);
 
     // 2 — ÁREA
-    MOSTRAR("Área",
+    printf("Área",
             area1, area2,
             area1 > area2);
 
     // 3 — PIB
-    MOSTRAR("PIB",
+    printf("PIB",
             pib1, pib2,
             pib1 > pib2);
 
     // 4 — PONTOS TURÍSTICOS
-    MOSTRAR("Pontos Turísticos",
+    printf("Pontos Turísticos",
             pontos1, pontos2,
             pontos1 > pontos2);
 
@@ -92,7 +92,7 @@ int main() {
     else printf("  Resultado: Empate (2)\n\n");
 
     // 6 — PIB PER CAPITA
-    MOSTRAR("PIB per Capita",
+    printf("PIB per Capita",
             pib_per_capita1, pib_per_capita2,
             pib_per_capita1 > pib_per_capita2);
 
